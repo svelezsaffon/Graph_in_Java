@@ -11,6 +11,10 @@ public class GraphNode<NodeVal> {
 
         }
 
+        public NodeVal getValue(){
+            return this.value;
+        }
+
         public GraphNode(NodeVal val)
         {
             this.value=val;
