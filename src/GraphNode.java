@@ -7,4 +7,12 @@ public class GraphNode<NodeVal> {
 
         private NodeVal value;
 
+        public GraphNode(){
+
+        }
+
+        public GraphNode(NodeVal val)
+        {
+            this.value=val;
+        }
 }
