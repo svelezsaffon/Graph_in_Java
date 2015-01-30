@@ -16,6 +16,8 @@ public class Main {
         graph.insertEdge("a","b",10.9);
 
 
+
+
         System.out.println(graph.toString());
 
 
