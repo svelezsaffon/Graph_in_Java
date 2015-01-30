@@ -10,9 +10,11 @@ public class Main {
 
         graph.insertNode("a");
 
-        graph.insertNode(10);
+        graph.insertNode("b");
 
-        graph.insertNode(910.10);
+
+        graph.insertEdge("a","b",10.9);
+
 
         System.out.println(graph.toString());
 

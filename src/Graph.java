@@ -17,6 +17,21 @@ public abstract class Graph<NodeVal,EdgeVal> {
 
 
 
+    public boolean putSingleEdge(NodeVal fromp,NodeVal top,EdgeVal valuep) {
+        GraphNode from = new GraphNode(fromp);
+        GraphNode to = new GraphNode(top);
+        boolean ret=false;
+        if (this.Central.containsKey(from) && this.Central.containsKey(to)) {
+
+            this.Central.get(from).put(to,valuep);
+
+            ret=true;
+        }
+
+
+        return ret;
+    }
+
     public Graph(){
         this.Central=new HashMap<GraphNode<NodeVal>, HashMap<GraphNode<NodeVal>, EdgeVal>>();
     }
@@ -37,7 +52,7 @@ public abstract class Graph<NodeVal,EdgeVal> {
             Set<GraphNode<NodeVal>> map=entry.getValue().keySet();
 
             for(GraphNode<NodeVal> i:map){
-                buffer.append(i.getValue().toString());
+                buffer.append("Santiago");
             }
 
 

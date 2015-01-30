@@ -4,14 +4,10 @@
 public class DirectedGraph extends Graph {
 
     @Override
-    public boolean insertEdge(Object from, Object to, Object value) {
-        boolean ret=false;
+    public boolean insertEdge(Object fromp, Object top, Object valuep) {
 
+     return this.putSingleEdge(fromp,top,valuep);
 
-
-
-
-        return ret;
     }
 
     @Override
