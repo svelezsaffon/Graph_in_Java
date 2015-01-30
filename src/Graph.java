@@ -46,13 +46,15 @@ public abstract class Graph<NodeVal,EdgeVal> {
             Map.Entry< GraphNode<NodeVal>, HashMap<GraphNode<NodeVal>, EdgeVal>  > entry=(Map.Entry< GraphNode<NodeVal>, HashMap<GraphNode<NodeVal>, EdgeVal>  >)iter.next();
 
             NodeVal val=(NodeVal)((GraphNode)entry.getKey()).getValue();
-
+            buffer.append("[");
             buffer.append(val.toString());
-
+            buffer.append("]");
             Set<GraphNode<NodeVal>> map=entry.getValue().keySet();
 
             for(GraphNode<NodeVal> i:map){
-                buffer.append("Santiago");
+                buffer.append("->(");
+                buffer.append(i.getValue().toString());
+                buffer.append(")");
             }
 
 
