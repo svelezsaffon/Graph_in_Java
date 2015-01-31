@@ -11,9 +11,94 @@ public abstract class Graph<NodeVal,EdgeVal> {
 
     public abstract boolean removeEdge(NodeVal from,NodeVal to);
 
-    public abstract boolean BFS(NodeVal start);
+    public abstract Graph BFS(NodeVal start);
 
-    public abstract boolean DFS(NodeVal start);
+    public Graph DFS(NodeVal start){
+        Graph bfs=null;
+
+        GraphNode<NodeVal> node=new GraphNode<NodeVal>(start);
+
+        if(this.Central.containsKey(node)){
+
+
+            bfs=new DirectedGraph();
+
+
+            Stack<GraphNode<NodeVal>> stack=new Stack<GraphNode<NodeVal>>();
+
+
+            stack.push(node);
+
+
+            while(!stack.empty()){
+
+                GraphNode<NodeVal> from=stack.pop();
+
+
+                if(!this.isNodeMarked(from.getValue())){
+                    this.markNode(from.getValue());
+
+                    bfs.insertNode(from.getValue());
+
+                    HashMap<GraphNode<NodeVal>, EdgeVal> map=this.Central.get(from);
+
+                    Set<GraphNode<NodeVal>> set=map.keySet();
+
+
+                    for(GraphNode<NodeVal> next:set){
+
+                        stack.push(next);
+
+                        if(bfs.insertNode(next.getValue())){
+                            bfs.insertEdge(from.getValue(),next.getValue(),map.get(next));
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        return bfs;
+    }
+
+
+    public void markNode(NodeVal node){
+        Set<GraphNode<NodeVal>> set=this.Central.keySet();
+
+        for(GraphNode<NodeVal> iter:set){
+            if(iter.getValue().equals(node)){
+                    iter.mark();
+                break;
+            }
+        }
+    }
+
+    public void unMarkNode(NodeVal node){
+        Set<GraphNode<NodeVal>> set=this.Central.keySet();
+
+        for(GraphNode<NodeVal> iter:set){
+            if(iter.getValue().equals(node)){
+                iter.unMark();
+                break;
+            }
+        }
+    }
+
+
+
+    public boolean isNodeMarked(NodeVal node){
+        Set<GraphNode<NodeVal>> set=this.Central.keySet();
+
+        for(GraphNode<NodeVal> iter:set){
+            if(iter.getValue().equals(node)){
+                return iter.isMArked();
+            }
+        }
+
+
+        return false;
+    }
 
 
 

@@ -7,6 +7,9 @@ public class GraphNode<NodeVal> {
 
         private NodeVal value;
 
+        private byte marked;
+
+
         public GraphNode(){
 
         }
@@ -19,6 +22,21 @@ public class GraphNode<NodeVal> {
         {
             this.value=val;
         }
+
+        public boolean isMArked(){
+            return (this.marked==1);
+        }
+
+
+
+    public void mark(){
+            this.marked= 1;
+        }
+
+        public void unMark(){
+            this.marked= 0;
+        }
+
 
 
     @Override

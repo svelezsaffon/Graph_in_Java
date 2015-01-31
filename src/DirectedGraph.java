@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Set;
+import java.util.Stack;
+
 /**
  * Created by santiago on 1/30/15.
  */
@@ -16,14 +20,12 @@ public class DirectedGraph extends Graph {
     }
 
     @Override
-    public boolean BFS(Object start) {
-        return false;
-    }
+    public Graph BFS(Object start) {
+        Graph bfs=new DirectedGraph();
 
-    @Override
-    public boolean DFS(Object start) {
-        return false;
-    }
 
+
+        return bfs;
+    }
 
 }

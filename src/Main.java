@@ -16,16 +16,21 @@ public class Main {
 
         graph.insertEdge("a", "b", 10.9);
         graph.insertEdge("a", 10, 10.9);
+        graph.insertEdge("b", 10, 10.9);
         graph.insertEdge(3.141516, 10, 10.9);
 
 
 
+        System.out.println(graph.DFS("a").toString());
 
-        System.out.println(graph.toString());
+
+
+
 
 
     }
 
 
 }
+
 
