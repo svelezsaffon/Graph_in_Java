@@ -21,7 +21,7 @@ public class Main {
 
 
 
-        System.out.println(graph.DFS("a").toString());
+        System.out.println(graph.BFS("a").toString());
 
 
 

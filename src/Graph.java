@@ -11,7 +11,55 @@ public abstract class Graph<NodeVal,EdgeVal> {
 
     public abstract boolean removeEdge(NodeVal from,NodeVal to);
 
-    public abstract Graph BFS(NodeVal start);
+    public Graph BFS(NodeVal start){
+        Graph bfs=null;
+
+        GraphNode<NodeVal> node=new GraphNode<NodeVal>(start);
+
+        if(this.Central.containsKey(node)){
+
+
+            bfs=new DirectedGraph();
+
+
+            Queue<GraphNode<NodeVal>> stack=new LinkedList<GraphNode<NodeVal>>();
+
+
+            stack.add(node);
+
+
+            while(!stack.isEmpty()){
+
+                GraphNode<NodeVal> from=stack.remove();
+
+
+                if(!this.isNodeMarked(from.getValue())){
+                    this.markNode(from.getValue());
+
+                    bfs.insertNode(from.getValue());
+
+                    HashMap<GraphNode<NodeVal>, EdgeVal> map=this.Central.get(from);
+
+                    Set<GraphNode<NodeVal>> set=map.keySet();
+
+
+                    for(GraphNode<NodeVal> next:set){
+
+                        stack.add(next);
+
+                        if(bfs.insertNode(next.getValue())){
+                            bfs.insertEdge(from.getValue(),next.getValue(),map.get(next));
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        return bfs;
+
+    }
 
     public Graph DFS(NodeVal start){
         Graph bfs=null;
